@@ -2,10 +2,25 @@
 using System.Collections.Generic;
 using System.Linq;
 using Planetbase;
+using UnityEngine;
 
 namespace CommunityUtils
 {
-    public class CUtils
+	public class Mod : ICMod
+	{
+		public byte versionMajor => 1;
+		public byte versionMinor => 0;
+		public byte versionRevision => 0;
+		public string versionAddtional => "";
+
+		public void Init() {
+			CUtils.sayActivated(this);
+		}
+
+		public void Update() { }
+	}
+
+	public class CUtils
     {
 		/// <summary>
 		/// Register a new component into the <see cref="Planetbase.ComponentTypeList"/> so that it can be added to modules later.
@@ -41,5 +56,17 @@ namespace CommunityUtils
 			components.Add(TypeList<ComponentType, ComponentTypeList>.find<CompT>());
 			module.mComponentTypes = components.ToArray();
 		}
+
+		public static void sayActivated(ICMod mod) {
+			Debug.Log($"[MOD] {typeof(Mod).Namespace} v{mod.versionMajor}.{mod.versionMinor}.{mod.versionRevision}{mod.versionAddtional} activated.");
+		}
+	}
+
+	public interface ICMod : IMod
+	{
+		byte versionMajor { get; }
+		byte versionMinor { get; }
+		byte versionRevision { get; }
+		string versionAddtional { get; }
 	}
 }
