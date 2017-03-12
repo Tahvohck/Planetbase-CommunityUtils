@@ -6,11 +6,11 @@ using UnityEngine;
 
 namespace CommunityUtils
 {
-	public class Mod : ICMod
+	public class Mod : ICUMod
 	{
 		public byte versionMajor => 1;
 		public byte versionMinor => 0;
-		public byte versionRevision => 0;
+		public byte versionRevision => 1;
 		public string versionAddtional => "";
 
 		public void Init() {
@@ -57,16 +57,40 @@ namespace CommunityUtils
 			module.mComponentTypes = components.ToArray();
 		}
 
-		public static void sayActivated(ICMod mod) {
+		/// <summary>
+		/// Add a mod's activation to the log in a standardized format. Requires that you implement ICUMod instead of IMod, as version numbers must be present.
+		/// Simplest call format is to add <code>CUtils.sayActivated(this);</code> to your <see cref="IMod.Init"/>.	
+		/// </summary>
+		/// <param name="mod"></param>
+		public static void sayActivated(ICUMod mod) {
 			Debug.Log($"[MOD] {typeof(Mod).Namespace} v{mod.versionMajor}.{mod.versionMinor}.{mod.versionRevision}{mod.versionAddtional} activated.");
 		}
 	}
 
-	public interface ICMod : IMod
+	/// <summary>
+	/// Extended mod interface (Community Utils Mod). Adds additional information to the mod class.
+	/// </summary>
+	public interface ICUMod : IMod
 	{
+		/// <summary>
+		/// Major version number. Changes to this number indicate API changes and break backwards-compatibility.
+		/// </summary>
 		byte versionMajor { get; }
+
+		/// <summary>
+		/// Minor version number. Changes to this number indicate additional functionality and should remain backwards-compatible.
+		/// </summary>
 		byte versionMinor { get; }
+
+		/// <summary>
+		/// Revision number. Changes to this number indicate under-the-hood code changes.
+		/// Should reset on <see cref="ICUMod.versionMajor"/> or <see cref="ICUMod.versionMinor"/> updates.
+		/// </summary>
 		byte versionRevision { get; }
+
+		/// <summary>
+		/// Additional information about the version. Appended directly to the version string, so any dashes or spaces must be explicit.
+		/// </summary>
 		string versionAddtional { get; }
 	}
 }
