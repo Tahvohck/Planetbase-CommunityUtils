@@ -111,7 +111,7 @@ namespace CUtils
 		/// </summary>
 		/// <typeparam name="CompT">Component type to add.</typeparam>
 		/// <typeparam name="ModuleT">Module type to add to.</typeparam>
-		public static void removeComponentFromModule<CompT, ModuleT>()
+		public static void removeComponent<CompT, ModuleT>()
 		where CompT : ComponentType where ModuleT : ModuleType {
 			ModuleT module = findType<ModuleT>() as ModuleT;
 			List<ComponentType> components = module.mComponentTypes.ToList();
