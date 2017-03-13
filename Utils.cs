@@ -23,9 +23,9 @@ namespace CommunityUtils
 		/// <param name="position">The position in the Module list to add the new component to.</param>
 		public static void addComponentToModuleAtPos<CompT,ModuleT>(byte position) 
 		where CompT : ComponentType where ModuleT : ModuleType {
-			ModuleT module = TypeList<ModuleType, ModuleTypeList>.find<ModuleT>() as ModuleT;
+			ModuleT module = findModuleType<ModuleT>() as ModuleT;
 			List<ComponentType> components = module.mComponentTypes.ToList();
-			components.Insert(position, TypeList<ComponentType, ComponentTypeList>.find<CompT>());
+			components.Insert(position, findComponentType<CompT>());
 			module.mComponentTypes = components.ToArray();
 		}
 
@@ -36,10 +36,54 @@ namespace CommunityUtils
 		/// <typeparam name="ModuleT">Module type to add to.</typeparam>
 		public static void addComponentToModule<CompT, ModuleT>()
 		where CompT : ComponentType where ModuleT : ModuleType {
-			ModuleT module = TypeList<ModuleType, ModuleTypeList>.find<ModuleT>() as ModuleT;
+			ModuleT module = findModuleType<ModuleT>() as ModuleT;
 			List<ComponentType> components = module.mComponentTypes.ToList();
-			components.Add(TypeList<ComponentType, ComponentTypeList>.find<CompT>());
+			components.Add(findComponentType<CompT>());
 			module.mComponentTypes = components.ToArray();
+		}
+
+		/// <summary>
+		/// Get a <see cref="ResourceType"/>.
+		/// Functionally identical to TypeList&lt;<see cref="ResourceType"/>, <see cref="ResourceTypeList"/>&gt;.find&lt;T&gt;() but easier to remember.
+		/// </summary>
+		/// <typeparam name="T"></typeparam>
+		/// <returns></returns>
+		public static ResourceType findResourceType<T>()
+		where T : ResourceType { 
+			return TypeList<ResourceType, ResourceTypeList>.find<T>();
+		}
+
+		/// <summary>
+		/// Get a <see cref="Specialization"/>.
+		/// Functionally identical to TypeList&lt;<see cref="Specialization"/>, <see cref="SpecializationList"/>&gt;.find&lt;T&gt;() but easier to remember.
+		/// </summary>
+		/// <typeparam name="T">The type of worker to get the specialization of.</typeparam>
+		/// <returns></returns>
+		public static Specialization findWorkerType<T>()
+		where T : Specialization {
+			return TypeList<Specialization, SpecializationList>.find<T>();
+		}
+
+		/// <summary>
+		/// Get a <see cref="ComponentType"/>.
+		/// Functionally identical to TypeList&lt;<see cref="ComponentType"/>, <see cref="ComponentTypeList"/>&gt;.find&lt;T&gt;() but easier to remember.
+		/// </summary>
+		/// <typeparam name="T">The type of worker to get the specialization of.</typeparam>
+		/// <returns></returns>
+		public static ComponentType findComponentType<T>()
+		where T : ComponentType {
+			return TypeList<ComponentType, ComponentTypeList>.find<T>();
+		}
+
+		/// <summary>
+		/// Get a <see cref="ModuleType"/>.
+		/// Functionally identical to TypeList&lt;<see cref="ModuleType"/>, <see cref="ModuleTypeList"/>&gt;.find&lt;T&gt;() but easier to remember.
+		/// </summary>
+		/// <typeparam name="T">The type of worker to get the specialization of.</typeparam>
+		/// <returns></returns>
+		public static ModuleType findModuleType<T>()
+		where T : ModuleType {
+			return TypeList<ModuleType, ModuleTypeList>.find<T>();
 		}
 
 		/// <summary>
