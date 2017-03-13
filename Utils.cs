@@ -28,6 +28,53 @@ namespace CUtils
 		where T : ComponentType {
 			return TypeList<ComponentType, ComponentTypeList>.find<T>();
 		}
+
+		/// <summary>
+		/// Clone all settings from CloneFromType to the passed component. THIS IS DESTRUCTIVE TO EXISTING SETTINGS.
+		/// 
+		/// Not cloned: mPrefabName
+		/// </summary>
+		/// <typeparam name="CloneFromType">The type to clone settings from</typeparam>
+		/// <param name="cloneTo">Clone settings onto this instance.</param>
+		public static void clone<CloneFromType>(ComponentType cloneTo)
+		where CloneFromType : ComponentType, new() {
+			ComponentType cloneFrom = new CloneFromType();
+			cloneTo.mConditionDecayTime = cloneFrom.mConditionDecayTime;
+			cloneTo.mConstructionCosts = cloneFrom.mConstructionCosts;
+			cloneTo.mConsumedResource = cloneFrom.mConsumedResource;
+			cloneTo.mEmbeddedResourceCount = cloneFrom.mEmbeddedResourceCount;
+			cloneTo.mFlags = cloneFrom.mFlags;
+			cloneTo.mHeight = cloneFrom.mHeight;
+			cloneTo.mHoldResourceCount = cloneFrom.mHoldResourceCount;
+			cloneTo.mIcon = cloneFrom.mIcon;
+			cloneTo.mMaxUsageTime = cloneFrom.mMaxUsageTime;
+			cloneTo.mMaxUsers = cloneFrom.mMaxUsers;
+			cloneTo.mModel = cloneFrom.loadPrefab();
+			cloneTo.mName = cloneFrom.mName;
+			cloneTo.mOperatedModuleType = cloneFrom.mOperatedModuleType;
+			cloneTo.mOperatorSpecialization = cloneFrom.mOperatorSpecialization;
+			cloneTo.mOverrideSelectionBounds = cloneFrom.mOverrideSelectionBounds;
+			cloneTo.mOxygenGeneration = cloneFrom.mOxygenGeneration;
+			cloneTo.mPowerGeneration = cloneFrom.mPowerGeneration;
+			cloneTo.mPrimaryStatusRecovery = cloneFrom.mPrimaryStatusRecovery;
+			cloneTo.mProduction = cloneFrom.mProduction;
+			cloneTo.mRadius = cloneFrom.mRadius;
+			cloneTo.mRecipes = cloneFrom.mRecipes;
+			cloneTo.mRepairTime = cloneFrom.mRepairTime;
+			cloneTo.mRequiredTech = cloneFrom.mRequiredTech;
+			cloneTo.mResourceConsumption = cloneFrom.mResourceConsumption;
+			cloneTo.mResourceProductionPeriod = cloneFrom.mResourceProductionPeriod;
+			cloneTo.mStatusRecoveryTimes = cloneFrom.mStatusRecoveryTimes;
+			cloneTo.mStoredResources = cloneFrom.mStoredResources;
+			cloneTo.mSurveyedConstructionCount = cloneFrom.mSurveyedConstructionCount;
+			cloneTo.mTooltip = cloneFrom.mTooltip;
+			cloneTo.mTransitionInAnimations = cloneFrom.mTransitionInAnimations;
+			cloneTo.mTransitionOutAnimations = cloneFrom.mTransitionOutAnimations;
+			cloneTo.mUsageAnimations = cloneFrom.mUsageAnimations;
+			cloneTo.mUsageCooldown = cloneFrom.mUsageCooldown;
+			cloneTo.mWallSeparation = cloneFrom.mWallSeparation;
+			cloneTo.mWaterGeneration = cloneFrom.mWaterGeneration;
+		}
 	}
 
 	public abstract class Modules
