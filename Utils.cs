@@ -48,7 +48,7 @@ namespace CommunityUtils
 		/// </summary>
 		/// <param name="mod"></param>
 		public static void sayActivated(ICUMod mod) {
-			Debug.Log($"[MOD] {typeof(Mod).Namespace} v{mod.versionMajor}.{mod.versionMinor}.{mod.versionRevision}{mod.versionAddtional} activated.");
+			Debug.Log($"[MOD] {mod.GetType().Namespace} v{mod.versionMajor}.{mod.versionMinor}.{mod.versionRevision}{mod.versionAddtional} activated.");
 		}
 	}
 }
