@@ -1,14 +1,14 @@
-﻿namespace CommunityUtils
+﻿namespace CUtils
 {
 	public class Mod : ICUMod
 	{
-		public byte versionMajor => 1;
-		public byte versionMinor => 1;
-		public byte versionRevision => 1;
-		public string versionAddtional => "";
+		public byte versionMajor => 2;
+		public byte versionMinor => 0;
+		public byte versionRevision => 0;
+		public string versionAddtional => "-pre";
 
 		public void Init() {
-			CUtils.sayActivated(this);
+			Mods.sayActivated(this);
 		}
 
 		public void Update() { }
