@@ -43,6 +43,19 @@ namespace CommunityUtils
 		}
 
 		/// <summary>
+		/// Remove a <see cref="Planetbase.ComponentType"/> to a <see cref="Planetbase.ModuleType"/>'s build list.
+		/// </summary>
+		/// <typeparam name="CompT">Component type to add.</typeparam>
+		/// <typeparam name="ModuleT">Module type to add to.</typeparam>
+		public static void removeComponentFromModule<CompT, ModuleT>()
+		where CompT : ComponentType where ModuleT : ModuleType {
+			ModuleT module = findModuleType<ModuleT>() as ModuleT;
+			List<ComponentType> components = module.mComponentTypes.ToList();
+			components.Remove(findComponentType<CompT>());
+			module.mComponentTypes = components.ToArray();
+		}
+
+		/// <summary>
 		/// Get a <see cref="ResourceType"/>.
 		/// Functionally identical to TypeList&lt;<see cref="ResourceType"/>, <see cref="ResourceTypeList"/>&gt;.find&lt;T&gt;() but easier to remember.
 		/// </summary>
