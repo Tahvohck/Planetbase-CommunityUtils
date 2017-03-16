@@ -8,17 +8,17 @@ namespace CUtils
 	public interface ICUMod : IMod
 	{
 		/// <summary>
-		/// Major version number. Changes to this number indicate API changes and break backwards-compatibility.
+		/// Major version number. Changes to this number indicate large-scale code changes, often full rewrites, and break backwards-compatibility.
 		/// </summary>
 		byte versionMajor { get; }
 
 		/// <summary>
-		/// Minor version number. Changes to this number indicate additional functionality and should remain backwards-compatible.
+		/// Minor version number. Changes to this number indicate API changes and break backwards-compatibility.
 		/// </summary>
 		byte versionMinor { get; }
 
 		/// <summary>
-		/// Revision number. Changes to this number indicate under-the-hood code changes.
+		/// Revision number. Changes to this number indicate changes that do not break backwards-compatibility.
 		/// Should reset on <see cref="ICUMod.versionMajor"/> or <see cref="ICUMod.versionMinor"/> updates.
 		/// </summary>
 		byte versionRevision { get; }
