@@ -1,6 +1,6 @@
 ﻿using Planetbase;
 
-namespace CUtils
+namespace CommunityUtils
 {
 	/// <summary>
 	/// Extended mod interface (Community Utils Mod). Adds additional information to the mod class.
