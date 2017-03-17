@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.Linq;
 using Planetbase;
 using UnityEngine;
@@ -182,15 +183,25 @@ namespace CommunityUtils
 				}
 			}
 		}
-		
+
 		/// <summary>
 		/// Add a mod's activation to the log in a standardized format. Requires that you implement ICUMod as well as IMod, as version numbers must be present.
 		/// Simplest call format is to add <code>CUtils.Mods.sayActivated(this);</code> to your <see cref="IMod.Init"/>.	
 		/// </summary>
 		/// <param name="mod"></param>
 		public static void sayActivated(ICUMod mod) {
-			Debug.Log($"[MOD] {mod.GetType().Namespace} v{mod.versionMajor}.{mod.versionMinor}.{mod.versionRevision}{mod.versionAddtional} activated.");
+			Debug.Log($"[MOD] {splitOnCaps(mod.GetType().Namespace)} v{mod.versionMajor}.{mod.versionMinor}.{mod.versionRevision}{mod.versionAddtional} activated.");
 		}
-		
+
+		/// <summary>
+		/// Split a camel case string into multiple words.
+		/// </summary>
+		/// <param name="str">String to split</param>
+		/// <returns></returns>
+		public static string splitOnCaps(string str) {
+			Regex matcher = new Regex("([a-z])([A-Z][a-z])");
+			return matcher.Replace(str, "$1 $2");
+		}
+
 	}
 }
