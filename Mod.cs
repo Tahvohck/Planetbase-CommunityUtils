@@ -1,6 +1,7 @@
-﻿namespace CommunityUtils
+﻿using Planetbase;
+namespace CommunityUtils
 {
-	public class Mod : ICUMod
+	public class Mod : ICUMod, IMod
 	{
 		public byte versionMajor => 1;
 		public byte versionMinor => 3;

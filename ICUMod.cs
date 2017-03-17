@@ -5,7 +5,7 @@ namespace CommunityUtils
 	/// <summary>
 	/// Extended mod interface (Community Utils Mod). Adds additional information to the mod class.
 	/// </summary>
-	public interface ICUMod : IMod
+	public interface ICUMod
 	{
 		/// <summary>
 		/// Major version number. Changes to this number indicate large-scale code changes, often full rewrites, and break backwards-compatibility.

@@ -184,7 +184,7 @@ namespace CommunityUtils
 		}
 		
 		/// <summary>
-		/// Add a mod's activation to the log in a standardized format. Requires that you implement ICUMod instead of IMod, as version numbers must be present.
+		/// Add a mod's activation to the log in a standardized format. Requires that you implement ICUMod as well as IMod, as version numbers must be present.
 		/// Simplest call format is to add <code>CUtils.Mods.sayActivated(this);</code> to your <see cref="IMod.Init"/>.	
 		/// </summary>
 		/// <param name="mod"></param>
