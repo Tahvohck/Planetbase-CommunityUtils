@@ -4,22 +4,24 @@ namespace CommunityUtils
 {
 	/// <summary>
 	/// Extended mod interface (Community Utils Mod). Adds additional information to the mod class.
+	/// Semantic versioning: http://semver.org/
 	/// </summary>
 	public interface ICUMod
 	{
 		/// <summary>
-		/// Major version number. Changes to this number indicate large-scale code changes, often full rewrites, and break backwards-compatibility.
+		/// API version number. Changes to this number indicate a break in backwards-compatibility.
 		/// </summary>
 		byte versionMajor { get; }
 
 		/// <summary>
-		/// Minor version number. Changes to this number indicate API changes and break backwards-compatibility.
+		/// Minor version number. Changes to this number indicate backwards-compatible changes.
+		/// Must reset on <see cref="ICUMod.versionMajor"/> updates.
 		/// </summary>
 		byte versionMinor { get; }
 
 		/// <summary>
-		/// Revision number. Changes to this number indicate changes that do not break backwards-compatibility.
-		/// Should reset on <see cref="ICUMod.versionMajor"/> or <see cref="ICUMod.versionMinor"/> updates.
+		/// Bugfix number. Changes to this number are for bugfixes only.
+		/// Must reset on <see cref="ICUMod.versionMajor"/> or <see cref="ICUMod.versionMinor"/> updates.
 		/// </summary>
 		byte versionRevision { get; }
 
