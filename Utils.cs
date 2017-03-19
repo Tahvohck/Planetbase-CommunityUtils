@@ -6,8 +6,14 @@ using UnityEngine;
 
 namespace CommunityUtils
 {
+	/// <summary>
+	/// Community utilities to make modding easier and the code for it read cleaner.
+	/// </summary>
 	public abstract class CUtils
 	{
+		/// <summary>
+		/// Tools for working with components.
+		/// </summary>
 		public abstract class Components
 		{
 			/// <summary>
@@ -77,6 +83,9 @@ namespace CommunityUtils
 			}
 		}
 
+		/// <summary>
+		/// Tools for working with Modules (AKA structures).
+		/// </summary>
 		public abstract class Modules
 		{
 			/// <summary>
@@ -131,6 +140,9 @@ namespace CommunityUtils
 			}
 		}
 
+		/// <summary>
+		/// Tools for working with Resources (Meals, Metal, Bioplastic, etc)
+		/// </summary>
 		public abstract class Resources
 		{
 			/// <summary>
@@ -145,6 +157,9 @@ namespace CommunityUtils
 			}
 		}
 
+		/// <summary>
+		/// Tools for working with Colonists/Visitors.
+		/// </summary>
 		public abstract class Workers
 		{
 			/// <summary>
@@ -159,6 +174,9 @@ namespace CommunityUtils
 			}
 		}
 
+		/// <summary>
+		/// Tools for working with the string database.
+		/// </summary>
 		public abstract class Strings
 		{
 			/// <summary>

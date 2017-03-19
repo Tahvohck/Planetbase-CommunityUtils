@@ -1,6 +1,6 @@
 ﻿using Planetbase;
 
-#pragma warning disable 1591
+#pragma warning disable CS1591
 
 namespace CommunityUtils
 {
