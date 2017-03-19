@@ -1,4 +1,7 @@
 ﻿using Planetbase;
+
+#pragma warning disable 1591
+
 namespace CommunityUtils
 {
 	public class Mod : ICUMod, IMod
