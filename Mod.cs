@@ -8,7 +8,7 @@ namespace CommunityUtils
 	{
 		public byte versionMajor => 1;
 		public byte versionMinor => 3;
-		public byte versionRevision => 0;
+		public byte versionRevision => 1;
 		public string versionAddtional => "";
 
 		public void Init() {
