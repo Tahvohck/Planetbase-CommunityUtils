@@ -56,6 +56,7 @@ namespace CommunityUtils
 				cloneTo.mMaxUsageTime = cloneFrom.mMaxUsageTime;
 				cloneTo.mMaxUsers = cloneFrom.mMaxUsers;
 				cloneTo.mModel = cloneFrom.loadPrefab();
+				cloneTo.mPrefabName = "Prefab" + cloneFrom.getName().Replace(" ", "");
 				cloneTo.mName = cloneFrom.mName;
 				cloneTo.mOperatedModuleType = cloneFrom.mOperatedModuleType;
 				cloneTo.mOperatorSpecialization = cloneFrom.mOperatorSpecialization;
